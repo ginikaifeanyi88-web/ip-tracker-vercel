@@ -40,7 +40,7 @@ setIsPending(false);
           setSearchValue(localStorage.getItem("lastLocationSearched"));
           handleClick();
         }
-    }, []);
+    }, [handleClick]);
 
   return (
     <div className="App">
@@ -48,7 +48,7 @@ setIsPending(false);
             <div className="title-and-searchbar">
                 <h2 className='app-name'>IP Adress Tracker</h2>
                 <div className="searchbar-and-button">
-                    <input type="text" id="ip-search" name="ip-search" placeholder='Search for any IP address or domain'  value={searchValue} onKeyDown={(e)=>{if (e.key== "Enter"){handleClick(searchValue)}}} onChange={(e)=>{setSearchValue(e.target.value)}}/>
+                    <input type="text" id="ip-search" name="ip-search" placeholder='Search for any IP address or domain'  value={searchValue} onKeyDown={(e)=>{if (e.key=== "Enter"){handleClick(searchValue)}}} onChange={(e)=>{setSearchValue(e.target.value)}}/>
                     <button className='search-button' onClick={()=>{handleClick(searchValue)
                     }}>
                         <img src={buttonArrow} alt="button arrow" className='button-arrow'/>
