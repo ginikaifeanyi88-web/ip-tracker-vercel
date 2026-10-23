@@ -7,7 +7,7 @@ function App() {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const[error, setError] = useState(null)
-   async function handleClick(){
+   async function handleClick(searchValue){
     localStorage.setItem("lastLocationSearched", searchValue);
     setData(null);
     setIsPending(true);
@@ -38,7 +38,7 @@ setIsPending(false);
         }else{
           
           setSearchValue(localStorage.getItem("lastLocationSearched"));
-          handleClick();
+          handleClick(searchValue);
         }
     }, []);
 
