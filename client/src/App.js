@@ -40,7 +40,7 @@ setIsPending(false);
           setSearchValue(localStorage.getItem("lastLocationSearched"));
           handleClick();
         }
-    }, [handleClick]);
+    }, []);
 
   return (
     <div className="App">
