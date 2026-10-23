@@ -1,0 +1,179 @@
+@import url( 'https://fonts.googleapis.com/css?family=Rubik');
+
+
+* {
+    font-family: 'Rubik';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main-page-div{
+    height: 270px;
+}
+
+.search-button{
+    background-color: black;
+    border: 0;
+    width: 50px;
+    height: 52px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.search-button:hover {
+    cursor: pointer;
+}
+
+.search-button:focus{
+ border: 2px solid #fff;
+}
+
+.title-and-searchbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(pattern-bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.searchbar-and-button{
+    display: flex;
+    align-items: center;
+     margin-top: 30px;
+}
+
+.app-name{
+    color: #fff;
+    margin-top: 30px;
+}
+
+#ip-search{
+   width: 70vw;
+   height: 52px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   border-style: none;
+   padding: 10px;
+}
+
+.map-container{
+height: 550px;
+}
+.map{height:100%;}
+
+.map-info{
+    position: absolute;
+    background-color: #fff;
+    top: 160px;
+      left: 0; 
+  right: 0; 
+  margin-inline: auto; 
+ display: flex;
+ flex-direction: column;
+    width: 80%;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 28px;
+    padding-top: 8px;
+    border-radius: 17px;
+    box-shadow: 0px 10px 10px hsl(219, 35%, 86%);
+}
+
+.map-info-deux{
+    position: absolute;
+    background-color: #fff;
+    top: 160px;
+      left: 0; 
+  right: 0; 
+  margin-inline: auto; 
+ display: flex;
+ flex-direction: column;
+    width: 80%;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 28px;
+    padding-top: 8px;
+    border-radius: 17px;
+    box-shadow: 0px 10px 10px hsl(219, 35%, 86%);
+    height: 312px;
+}
+
+.map-info-item{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.map-info-title{
+    font-size: 11px;
+    color: hsl(0, 0%, 58%);
+    font-weight: bold;
+}
+
+.map-info-value{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.leaflet-container{
+height: 100%;
+z-index: -1;
+}
+
+/* Desktop view */
+@media only screen and (min-width:750px) {
+    .map-info{
+ flex-direction: row;
+width: 75%;
+height: 140px;
+}
+
+.map-info-deux{
+ flex-direction: row;
+width: 75%;
+height: 140px;
+}
+
+
+#ip-search{
+   width: 35vw;
+}
+
+.title-and-searchbar{
+    background: url(pattern-bg-desktop.png);
+}
+
+.map-info-item:nth-of-type(1){
+    padding-right: 5%;
+    border-right: 2px solid hsl(0, 6%, 86%);
+}
+
+.map-info-item:nth-of-type(2){
+    padding-left: 2%;
+ border-right: 1px solid hsl(0, 0%, 58%);
+padding-right:5%;
+}
+
+.map-info-item:nth-of-type(3){
+    padding-left: 2%;
+border-right: 2px solid hsl(0, 6%, 86%);
+padding-right:5%;
+}
+.map-info-item:nth-of-type(4){
+    padding-left: 2%;
+
+}
+.map-info-item{
+    text-align: left;
+
+}
+}
