@@ -5,7 +5,6 @@ import {Icon} from 'leaflet'
  import 'leaflet/dist/images/marker-icon-2x.png'
  import icon from 'leaflet/dist/images/marker-icon.png'
 function MyComponent() {
-  const map = useMap();
   return null;
 }
 
