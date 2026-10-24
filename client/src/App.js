@@ -7,7 +7,7 @@ function App() {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const[error, setError] = useState(null)
-   async function handleClick(searchValue){
+   async function handleClick(){
     localStorage.setItem("lastLocationSearched", searchValue);
     setData(null);
     setIsPending(true);
@@ -31,15 +31,40 @@ setIsPending(false);
   };
 
   useEffect(()=>{
+    async  function initLoad(lastSearched){
+      const lastSearch =lastSearched;
+
+    setData(null);
+              setIsPending(true);
+    setError(null);
+    try{
+const value = await fetch(`http://localhost:8000/api?&ipAddress=${lastSearch}`).then((response)=>{
+  if (!response.ok){
+        throw Error("Could not fetch the data for that resource");
+                    }
+  return response.json();
+});
+console.log(value);
+setData(value);
+
+    console.log(localStorage.getItem("lastLocationSearched"));
+    } catch(error){
+      setError(error.message);
+    }
+
+setIsPending(false);
+        }
         if ((localStorage.getItem("lastLocationSearched")===null)|| (localStorage.getItem("lastLocationSearched")==="")){
           console.log(localStorage.getItem("lastLocationSearched"));
         setSearchValue("");
-        handleClick("");
+      
+        initLoad("");
         }else{
           
           setSearchValue(localStorage.getItem("lastLocationSearched"));
-          handleClick(searchValue);
+          initLoad(localStorage.getItem("lastLocationSearched"));
         }
+  // eslint-disable-next-line no-use-before-define  
     }, []);
 
   return (
@@ -48,8 +73,8 @@ setIsPending(false);
             <div className="title-and-searchbar">
                 <h2 className='app-name'>IP Adress Tracker</h2>
                 <div className="searchbar-and-button">
-                    <input type="text" id="ip-search" name="ip-search" placeholder='Search for any IP address or domain'  value={searchValue} onKeyDown={(e)=>{if (e.key=== "Enter"){handleClick(searchValue)}}} onChange={(e)=>{setSearchValue(e.target.value)}}/>
-                    <button className='search-button' onClick={()=>{handleClick(searchValue)
+                    <input type="text" id="ip-search" name="ip-search" placeholder='Search for any IP address or domain'  value={searchValue} onKeyDown={(e)=>{if (e.key=== "Enter"){handleClick()}}} onChange={(e)=>{setSearchValue(e.target.value)}}/>
+                    <button className='search-button' onClick={()=>{handleClick()
                     }}>
                         <img src={buttonArrow} alt="button arrow" className='button-arrow'/>
                     </button>
