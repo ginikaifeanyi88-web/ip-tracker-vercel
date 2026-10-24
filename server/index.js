@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8000
 const app = express();
 // Enable cors
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://ip-tracker-client-ten.vercel.app'
 }));
 
 
