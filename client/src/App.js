@@ -38,7 +38,7 @@ setIsPending(false);
               setIsPending(true);
     setError(null);
     try{
-const value = await fetch(`https://ip-tracker-server-qsa9cgnq-ginikaifeanyi88-webs-projects.vercel.app/api?&ipAddress=${lastSearch}`).then((response)=>{
+const value = await fetch(`https://ip-tracker-server-q5sa9cgnq-ginikaifeanyi88-webs-projects.vercel.app/api?&ipAddress=${lastSearch}`).then((response)=>{
   if (!response.ok){
         throw Error("Could not fetch the data for that resource");
                     }
