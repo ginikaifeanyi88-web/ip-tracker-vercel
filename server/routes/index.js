@@ -9,7 +9,6 @@ const API_KEY_NAME = process.env.API_KEY_NAME;
 const GEO_API_KEY = process.env.GEO_API_KEY;
 router.get('/', async (req, res)=>{
     try {
-        console.log();
         const params = new URLSearchParams({
             [API_KEY_NAME]: GEO_API_KEY,
             ...url.parse(req.url, true).query

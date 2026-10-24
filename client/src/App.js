@@ -19,10 +19,8 @@ const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?&ipAddre
                     }
   return response.json();
 });
-console.log(value);
 setData(value);
 
-    console.log(localStorage.getItem("lastLocationSearched"));
     } catch(error){
       setError(error.message);
     }
@@ -44,10 +42,8 @@ const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?&ipAddre
                     }
   return response.json();
 });
-console.log(value);
 setData(value);
 
-    console.log(localStorage.getItem("lastLocationSearched"));
     } catch(error){
       setError(error.message);
     }
@@ -55,7 +51,6 @@ setData(value);
 setIsPending(false);
         }
         if ((localStorage.getItem("lastLocationSearched")===null)|| (localStorage.getItem("lastLocationSearched")==="")){
-          console.log(localStorage.getItem("lastLocationSearched"));
         setSearchValue("");
       
         initLoad("");

@@ -6,7 +6,6 @@ import {Icon} from 'leaflet'
  import icon from 'leaflet/dist/images/marker-icon.png'
 function MyComponent() {
   const map = useMap();
-  console.log('map center:', map.getCenter())
   return null;
 }
 
