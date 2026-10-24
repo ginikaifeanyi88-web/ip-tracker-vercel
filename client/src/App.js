@@ -13,7 +13,7 @@ function App() {
     setIsPending(true);
     setError(null);
     try{
-const value = await fetch(`https://ip-tracker-client-6ep8zthzt-ginikaifeanyi88-webs-projects.vercel.app/api?&ipAddress=${searchValue}`).then((response)=>{
+const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?&ipAddress=${searchValue}`).then((response)=>{
   if (!response.ok){
         throw Error("Could not fetch the data for that resource");
                     }
@@ -38,7 +38,7 @@ setIsPending(false);
               setIsPending(true);
     setError(null);
     try{
-const value = await fetch(`https://ip-tracker-client-6ep8zthzt-ginikaifeanyi88-webs-projects.vercel.app/api?&ipAddress=${lastSearch}`).then((response)=>{
+const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?&ipAddress=${lastSearch}`).then((response)=>{
   if (!response.ok){
         throw Error("Could not fetch the data for that resource");
                     }
