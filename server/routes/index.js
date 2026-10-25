@@ -17,7 +17,7 @@ router.get('/', async (req, res)=>{
     const data = apiRes.body;
     res.status(200).json(data);
     } catch (error) {
-        res.status(500).json(data);
+        res.status(500).json({message:"bad data"});
     }
 
 })
