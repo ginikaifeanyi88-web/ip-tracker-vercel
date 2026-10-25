@@ -16,8 +16,9 @@ function App() {
 const isIp = /^[\d.]+$/.test(searchValue) || searchValue.includes(":");
 const param = isIp ? "ipAddress" : "domain";
 const response = await fetch(`https://ip-tracker-server-eta.vercel.app/api?${param}=${encodeURIComponent(searchValue)}`);
-if (!response.ok){ throw new Error("No location found for that IP address or domain")};
 const value = await response.json();
+if (!response.ok || (value.code<200 || value.code>299)){ throw new Error("No location found for that IP address or domain")};
+
 console.log(value);
 setData(value);
 localStorage.setItem("lastLocationSearched", searchValue);
