@@ -13,13 +13,12 @@ function App() {
     setIsPending(true);
     setError(null);
     try{
-const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?&ipAddress=${searchValue}`).then((response)=>{
-  if (!response.ok){
-        throw Error("Could not fetch the data for that resource");
-                    }
-  return response.json();
-});
-setData(value);
+const isIp = /^[\d.]+$/.test(searchValue) || searchValue.includes(":");
+const param = isIp ? "ipAddress" : "domain";
+const response = await fetch(`https://ip-tracker-server-eta.vercel.app/api?${param}=${encodeURIComponent(searchValue)}`);
+if (!response.ok){ throw new Error("No location found for that IP address or domain")};
+setData(await response.json());
+localStorage.setItem("lastLocationSearched", searchValue);
 
     } catch(error){
       setError(error.message);
