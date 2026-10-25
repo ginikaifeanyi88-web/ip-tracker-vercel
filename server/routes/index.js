@@ -13,12 +13,11 @@ router.get('/', async (req, res)=>{
             [API_KEY_NAME]: GEO_API_KEY,
             ...url.parse(req.url, true).query
         })
-            const apiRes = await needle('get', `${API_BASE_URL}?${params}`);
-            if (!apiRes.ok){throw new Error("No location found for that IP address or domain")}
+            const apiRes = await needle('get', `${API_BASE_URL}?${params}`)
     const data = apiRes.body;
     res.status(200).json(data);
     } catch (error) {
-        res.status(apiRes.statusCode).json(data);
+        res.status(apiRes).json({error})
     }
 
 })
