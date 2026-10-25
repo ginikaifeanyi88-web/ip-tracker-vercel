@@ -14,7 +14,6 @@ router.get('/', async (req, res)=>{
             ...url.parse(req.url, true).query
         })
             const apiRes = await needle('get', `${API_BASE_URL}?${params}`)
-            console.log(apiRes);
     const data = apiRes.body;
     res.status(200).json(data);
     } catch (error) {
