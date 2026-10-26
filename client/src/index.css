@@ -72,6 +72,7 @@ height: 550px;
 
 .map-info{
     position: absolute;
+    z-index: -1;
     background-color: #fff;
     top: 160px;
       left: 0; 
@@ -90,6 +91,7 @@ height: 550px;
 
 .map-info-deux{
     position: absolute;
+    z-index: -1;
     background-color: #fff;
     top: 160px;
       left: 0; 
@@ -126,7 +128,7 @@ height: 550px;
 
 .leaflet-container{
 height: 100%;
-z-index: -1;
+z-index: 0;
 }
 
 /* Desktop view */
