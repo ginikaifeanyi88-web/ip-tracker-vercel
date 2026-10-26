@@ -38,7 +38,7 @@ setIsPending(false);
     try{
       const isIp = /^[\d.]+$/.test(lastSearch) || lastSearch.includes(":");
 const param = isIp ? "ipAddress" : "domain";
-const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?${param}=${encodeURIComponent(searchValue)}`).then((response)=>{
+const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?${param}=${encodeURIComponent(lastSearch)}`).then((response)=>{
   if (!response.ok){
         throw Error("Could not fetch the data for that resource");
                     }
