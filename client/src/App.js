@@ -8,7 +8,6 @@ function App() {
   const [isPending, setIsPending] = useState(true);
   const[error, setError] = useState(null)
    async function handleClick(){
-    localStorage.setItem("lastLocationSearched", searchValue);
     setData(null);
     setIsPending(true);
     setError(null);
@@ -38,7 +37,9 @@ setIsPending(false);
               setIsPending(true);
     setError(null);
     try{
-const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?&ipAddress=${lastSearch}`).then((response)=>{
+      const isIp = /^[\d.]+$/.test(lastSearch) || lastSearch.includes(":");
+const param = isIp ? "ipAddress" : "domain";
+const value = await fetch(`https://ip-tracker-server-eta.vercel.app/api?${param}=${encodeURIComponent(searchValue)}`).then((response)=>{
   if (!response.ok){
         throw Error("Could not fetch the data for that resource");
                     }
