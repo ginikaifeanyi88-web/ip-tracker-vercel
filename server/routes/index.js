@@ -7,18 +7,16 @@ const needle = require('needle');
 const API_BASE_URL = process.env.API_BASE_URL;
 const API_KEY_NAME = process.env.API_KEY_NAME;
 const GEO_API_KEY = process.env.GEO_API_KEY;
-router.get('/', async (req, res)=>{
-    try {
-        const params = new URLSearchParams({
-            [API_KEY_NAME]: GEO_API_KEY,
-            ...url.parse(req.url, true).query
-        })
-            const apiRes = await needle('get', `${API_BASE_URL}?${params}`)
-    const data = apiRes.body;
-    res.status(200).json(data);
-    } catch (error) {
-        res.status(500).json({error})
-    }
+router.get('/', async (req, res) => {
+  const query = { ...req.query };
+  if (!query.ipAddress && !query.domain) query.ipAddress = req.ip;
+  const params = new URLSearchParams({ [API_KEY_NAME]: GEO_API_KEY, ...query });
 
-})
+  try {
+    const apiRes = await needle('get', `${API_BASE_URL}?${params}`);
+    res.status(apiRes.statusCode).json(apiRes.body);
+  } catch {
+    res.status(502).json({ message: "Couldn't reach the geolocation service" });
+  }
+});
 module.exports = router
