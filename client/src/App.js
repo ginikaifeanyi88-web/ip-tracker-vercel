@@ -68,7 +68,7 @@ setIsPending(false);
     <div className="App">
        <div className="main-page-div">
             <div className="title-and-searchbar">
-                <h2 className='app-name'>IP Adress Tracker</h2>
+                <h2 className='app-name'>IP Address Tracker</h2>
                 <div className="searchbar-and-button">
                     <input type="text" id="ip-search" name="ip-search" placeholder='Search for any IP address or domain'  value={searchValue} onKeyDown={(e)=>{if (e.key=== "Enter"){handleClick()}}} onChange={(e)=>{setSearchValue(e.target.value)}}/>
                     <button className='search-button' onClick={()=>{handleClick()
